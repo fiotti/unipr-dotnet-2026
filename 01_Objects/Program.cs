@@ -34,8 +34,8 @@ class MyClass
         set => _field = value;
     }
 
-    // Le property possono anche avere solo un getter, 
-    // ppure volendo solo un setter (raramente).
+    // Le property possono anche avere solo un getter,
+    // oppure volendo solo un setter (raramente).
     public int GetterOnly
     {
         get => _readonlyField;

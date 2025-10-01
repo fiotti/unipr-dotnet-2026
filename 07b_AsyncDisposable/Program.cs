@@ -65,7 +65,7 @@ class BetterAsyncDisposable : IDisposable, IAsyncDisposable
     private MyAsyncDisposableClass? _asyncDisposableResource = new();
 
     // Esempio puntatore a risorsa non gestita.
-    private nint _unamangedResourceHandle = Marshal.AllocHGlobal(4096);
+    private nint _unmanagedResourceHandle = Marshal.AllocHGlobal(4096);
 
     // Esempio buffer di grandi dimensioni.
     private byte[]? _bigBuffer = new byte[0x1000000]; // 16MiB
@@ -109,7 +109,7 @@ class BetterAsyncDisposable : IDisposable, IAsyncDisposable
             // non gestite da .NET, per esempio quando da un programma scritto
             // in C# si fa uso di componenti scritti in C o C++. Questa è una
             // casistica relativamente rara.
-            Marshal.FreeHGlobal(_unamangedResourceHandle);
+            Marshal.FreeHGlobal(_unmanagedResourceHandle);
 
             // Per agevolare il lavoro del garbage collector, è
             // consigliato assegnare valore null a eventuali campi contenenti

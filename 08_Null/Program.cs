@@ -100,13 +100,13 @@ bool TryFindBad(IEnumerable<string> items, string startsWith, out string? found)
 }
 
 string[] items = ["banana", "tomato", "apple"];
-if (TryFindBad(items, "toma", out string? toma))
+if (TryFindBad(items, "tom", out string? tom))
 {
     // Dato che TryFindBad(…) ha restituito true,
-    // toma è sicuramente diverso da null,
+    // la variabile "tom" ha sicuramente valore non null,
     // ma il compilatore non lo sa...
 
-    string example = Duplicate(toma); // Warning: possible null reference argument for parameter 'str' in `string Duplicate(string str)`.
+    string example = Duplicate(tom); // Warning: possible null reference argument for parameter 'str' in `string Duplicate(string str)`.
 }
 
 // In tal caso è possibile aiutare il compilatore tramite attributi:
@@ -127,9 +127,9 @@ bool TryFindGood(IEnumerable<string> items, string startsWith, [NotNullWhen(true
     return false;
 }
 
-if (TryFindGood(items, "toma", out string? toma2))
+if (TryFindGood(items, "tom", out string? tom2))
 {
-    string example = Duplicate(toma2); // OK
+    string example = Duplicate(tom2); // OK
 }
 
 

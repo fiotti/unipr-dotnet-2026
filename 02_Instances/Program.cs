@@ -24,8 +24,8 @@ public static class Program
 
         Console.WriteLine($"Second: {myObject.Num}"); // 456 (e non 123)
 
-        // "myObject" verrà deallocato automaticamente a breve, in quanto non più utilizzato.
-        // Non è necessario fare esplicitamente "delete" in C# per deallocare la memoria.
+        // "myObject" verrà de-allocato automaticamente a breve, in quanto non più utilizzato.
+        // Non è necessario fare esplicitamente "delete" in C# per de-allocare la memoria.
     }
 
     private static void SomeMethod2()
@@ -40,7 +40,7 @@ public static class Program
 
         Console.WriteLine($"Fourth: {myValue.Num}"); // 123 (e non 456)
 
-        // Dato che "myValue" è sullo stack, non è necessario deallocare nulla.
+        // Dato che "myValue" è sullo stack, non è necessario de-allocare nulla.
         // Questa area di memoria non è più raggiungibile una volta usciti dal metodo.
     }
 
