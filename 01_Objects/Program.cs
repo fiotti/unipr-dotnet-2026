@@ -193,6 +193,21 @@ public struct MyStruct : IJumping
 
 
 
+// Le "ref struct" sono equivalenti alle "struct", ma vengono trasferite per
+// riferimento piuttosto che per copia, introducendo quindi alcune limitazioni.
+// Sono utilizzate solitamente in ambiti dove è necessaria massima performance.
+// Possono implementare interfacce.
+
+public ref struct MyRefStruct : IJumping
+{
+    public void Jump()
+    {
+        Console.WriteLine("Jump called.");
+    }
+}
+
+
+
 // I "delegate" permettono di definire la firma di una funzione.
 public delegate int MyDelegate(int param, string anotherParam);
 

@@ -124,7 +124,7 @@ async Task WriteToFileExampleAsync(CancellationToken cancellationToken = default
         // Scrive una riga di testo sul file.
         await writer.WriteLineAsync("Hello, World!");
 
-        await writer.FlushAsync();
+        await writer.FlushAsync(cancellationToken);
     }
 
     // Forza un flush del buffer di scrittura.

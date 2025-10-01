@@ -82,7 +82,7 @@ Console.WriteLine($"Multi-thread: {sharedCounter}");
 // all'interno della sezione "lock" siano visibili a tutti gli altri thread nel
 // momento in cui entrano nella sezione "lock".
 
-object guard = new();
+Lock guard = new();
 int sharedCounter2 = 0;
 
 List<Thread> threads3 = [];

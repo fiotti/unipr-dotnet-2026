@@ -5,7 +5,7 @@
 // Dato che sono pensate per segnalare anomalie, oltre ad un messaggio che lo
 // sviluppatore può indicare per descrivere il problema, includono le
 // informazioni necessarie per identificarne agevolmente il punto di origine.
-// Queste informazioni consistono nello stack trace, ovvero una traccia dello
+// Queste informazioni consistono nello "stack trace", ovvero una traccia dello
 // stack nell'istante nel quale l'eccezione viene lanciata con "throw".
 
 static class Program
@@ -133,8 +133,8 @@ static class Program
 
             // Lo stack trace viene valorizzato in corrispondenza del "throw",
             // se si fa "throw" di un'eccezione per la quale è già stato
-            // valorizzato lo stack trace, lo stack trace del primo "throw"
-            // viene perso e rimpiazzato con lo stack trace dell'ultimo.
+            // valorizzato lo stack trace, la traccia dello stack del primo "throw"
+            // viene perso e rimpiazzato con la traccia dello stack dell'ultimo.
 
             throw ex; // Warning: Re-throwing caught exception changes stack information.
         }

@@ -5,11 +5,13 @@
 # da parte dell'IDE per utilizzare la sintassi ottimale.
 dotnet_diagnostic.CA1050.severity = none
 dotnet_diagnostic.CA1822.severity = none
+dotnet_diagnostic.CA1859.severity = none
 dotnet_diagnostic.CS0162.severity = none
 dotnet_diagnostic.CS0168.severity = none
 dotnet_diagnostic.CS0219.severity = none
 dotnet_diagnostic.CS1998.severity = none
 dotnet_diagnostic.CS8321.severity = none
+dotnet_diagnostic.IDE0018.severity = none
 dotnet_diagnostic.IDE0028.severity = none
 dotnet_diagnostic.IDE0044.severity = none
 dotnet_diagnostic.IDE0051.severity = none
@@ -20,3 +22,6 @@ dotnet_diagnostic.IDE0060.severity = none
 dotnet_diagnostic.IDE0062.severity = none
 dotnet_diagnostic.IDE0063.severity = none
 dotnet_diagnostic.IDE0251.severity = none
+dotnet_diagnostic.IDE0290.severity = none
+dotnet_diagnostic.IDE0305.severity = none
+dotnet_diagnostic.IDE0350.severity = none

@@ -9,7 +9,7 @@ void PrintDefinitionOf(Type type)
     MemberInfo[] members = type
         .GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly);
 
-    Console.WriteLine($"Members of {type.Name}:");
+    Console.WriteLine($"Members of the type {type.Name}:");
 
     foreach (MemberInfo member in members)
     {
@@ -27,7 +27,7 @@ Type myClassType = typeof(MyClass);
 PrintDefinitionOf(myClassType);
 
 // Output:
-// Members of MyClass:
+// Members of the type MyClass:
 // - Method: get_MyStaticProperty (generated)
 // - Method: set_MyStaticProperty (generated)
 // - Method: get_MyProperty (generated)
@@ -57,7 +57,7 @@ void PrintValuesOf(object obj)
     MemberInfo[] members = type
         .GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static | BindingFlags.DeclaredOnly);
 
-    Console.WriteLine($"Values of object of type {type.Name}:");
+    Console.WriteLine($"Values in object of type {type.Name}:");
 
     foreach (MemberInfo member in members)
     {
@@ -77,7 +77,7 @@ MyClass myObject = new("1", 2, 3f, 4.0);
 PrintValuesOf(myObject);
 
 // Output:
-// Values of object of type MyClass:
+// Values in object of type MyClass:
 // - MyStaticProperty: 123
 // - MyProperty: 2
 // - MyProtectedProperty: 4

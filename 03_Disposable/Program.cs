@@ -3,6 +3,12 @@
 // è prevista un'interfaccia speciale "IDisposable" per indicare che un oggetto
 // deve fare delle operazioni quando non è più utilizzato.
 
+using System.Buffers;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
 public static class Program
 {
     // Se è presente un metodo di nome "Main" viene usato come punto di ingresso.
@@ -55,7 +61,24 @@ class MyDisposableClass : IDisposable
 // Questa è un'implementazione corretta di IDisposable:
 class BetterDisposable : IDisposable
 {
+    // Esempio risorsa disposable.
+    private FileStream _disposableResource = new("example.txt", FileMode.Open, FileAccess.Read);
+
+    // Esempio puntatore a risorsa non gestita.
+    private nint _unamangedResourceHandle = Marshal.AllocHGlobal(4096);
+
+    // Esempio buffer di grandi dimensioni.
+    private byte[]? _bigBuffer = new byte[0x1000000]; // 16MiB
+
     private bool _disposed;
+
+    [MemberNotNull(nameof(_bigBuffer))]
+    void EnsureNotDisposed()
+    {
+        ObjectDisposedException.ThrowIf(_disposed, this);
+
+        Debug.Assert(_bigBuffer is not null);
+    }
 
     protected virtual void Dispose(bool disposing)
     {
@@ -63,24 +86,27 @@ class BetterDisposable : IDisposable
         {
             if (disposing)
             {
-                // TODO: invocare il metodo "Dispose" degli oggetti che sono
+                // Invocare il metodo "Dispose" degli oggetti che sono
                 // stati creati dall'interno di questa classe.
+                _disposableResource.Dispose();
             }
 
-            // TODO: rilasciare le eventuali risorse native, ovvero risorse
+            // Rilasciare le eventuali risorse native, ovvero risorse
             // non gestite da .NET, per esempio quando da un programma scritto
             // in C# si fa uso di componenti scritti in C o C++. Questa è una
             // casistica relativamente rara.
+            Marshal.FreeHGlobal(_unamangedResourceHandle);
 
-            // TODO: per agevolare il lavoro del garbage collector, è
+            // Per agevolare il lavoro del garbage collector, è
             // consigliato assegnare valore null a eventuali campi contenenti
             // oggetti di grandi dimensioni, come per esempio buffer.
+            _bigBuffer = null;
 
             _disposed = true;
         }
     }
 
-    // TODO: se sono presenti risorse native (casistica relativamente rara), è
+    // Se sono presenti risorse native (casistica relativamente rara), è
     // necessario aggiungere un finalizzatore alla classe; se non sono presenti
     // risorse native non è necessario aggiungere un finalizzatore.
     // Il finalizzatore deve generalmente contenere solo una chiamata al metodo
@@ -97,3 +123,8 @@ class BetterDisposable : IDisposable
         GC.SuppressFinalize(this);
     }
 }
+
+
+
+// Per ulteriori informazioni su IDisposable:
+// https://learn.microsoft.com/dotnet/standard/garbage-collection/implementing-dispose

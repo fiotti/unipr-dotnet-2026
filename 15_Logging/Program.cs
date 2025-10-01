@@ -34,7 +34,7 @@ class ProcessDataFile(ILogger<ProcessDataFile> logger) : BackgroundService
                 // I messaggi di warning indicano situazioni anomale.
                 //
                 // Solitamente indicano che l'operazione richiesta può comunque
-                // essere portata a compimento senza errori, ma che ciò
+                // essere portata a termine senza errori, ma che ciò
                 // potrebbe non essere fatto in modo ottimale.
                 logger.LogWarning("Questa applicazione dovrebbe essere eseguita in modalità a 64 bit.");
             }
@@ -69,6 +69,7 @@ class ProcessDataFile(ILogger<ProcessDataFile> logger) : BackgroundService
             // Generalmente dopo un errore critico il software va in crash,
             // ovvero termina forzatamente e non procede con l'elaborazione.
             logger.LogCritical(ex, "Elaborazione file interrotta a causa di un errore non gestito.");
+            throw;
         }
     }
 
