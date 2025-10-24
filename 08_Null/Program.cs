@@ -78,6 +78,10 @@ string good = (test2 ?? throw new Exception("test2 is null")).Substring(1);
 Debug.Assert(test2 != null);
 string good2 = test2.Substring(1);
 
+// È anche previsto ?. (chiamato operatore di "null-coalesce"), per valutare la
+// parte destra dell'espressione solo se la parte sinistra non è null.
+string? good3 = test?.Substring(6); // "ll"
+string? good4 = test2?.Substring(6); // null perché test2 è null
 
 
 // In alcune situazioni più complesse il compilatore potrebbe non essere in

@@ -92,7 +92,7 @@ class BetterAsyncDisposable : IDisposable, IAsyncDisposable
                 // creati dall'interno di questa classe, e impostarli a null.
                 if (_disposableResource is not null)
                 {
-                    _disposableResource?.Dispose();
+                    _disposableResource.Dispose();
                     _disposableResource = null;
                 }
 
@@ -135,9 +135,9 @@ class BetterAsyncDisposable : IDisposable, IAsyncDisposable
             await disposable.DisposeAsync();
             _disposableResource = null;
         }
-        else
+        else if (_disposableResource is not null)
         {
-            _disposableResource?.Dispose();
+            _disposableResource.Dispose();
             _disposableResource = null;
         }
     }
