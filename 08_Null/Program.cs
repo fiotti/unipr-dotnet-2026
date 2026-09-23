@@ -68,7 +68,7 @@ string bad = test2!.Substring(1); // Nessun warning, eccezione a runtime.
 
 // Nota dell'autore: personalmente consiglio di non utilizzare mai l'operatore
 // di "null-forgiving" a meno che non si stia scrivendo del codice estremamente
-// minimale e si abbia assoluta certezza non dovrà mai essere modificato.
+// minimale e si abbia assoluta certezza che non dovrà mai essere modificato.
 // Una soluzione più affidabile per gestire questa casistica è per esempio:
 string good = (test2 ?? throw new Exception("test2 is null")).Substring(1);
 
@@ -82,6 +82,12 @@ string good2 = test2.Substring(1);
 // parte destra dell'espressione solo se la parte sinistra non è null.
 string? good3 = test?.Substring(6); // "ll"
 string? good4 = test2?.Substring(6); // null perché test2 è null
+
+// L'operatore ?. può essere utilizzato anche per le assegnazioni, e assegna un
+// valore solamente se la parte sinistra dell'espressione non è null.
+// In questo caso è chiamato operatore di "assegnazione condizionale null".
+List<int>? test3 = null;
+test3?.Capacity = 1234;
 
 
 // In alcune situazioni più complesse il compilatore potrebbe non essere in

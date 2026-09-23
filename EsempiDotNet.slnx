@@ -1,0 +1,26 @@
+<Solution>
+  <Project Path="00_Constructs/00_Constructs.csproj" />
+  <Project Path="01_Objects/01_Objects.csproj" />
+  <Project Path="02_Instances/02_Instances.csproj" />
+  <Project Path="03_Disposable/03_Disposable.csproj" />
+  <Project Path="04_Generics/04_Generics.csproj" />
+  <Project Path="05_Collections/05_Collections.csproj" />
+  <Project Path="06b_Extensions/06b_Extensions.csproj" />
+  <Project Path="06_Linq/06_Linq.csproj" />
+  <Project Path="07_Async/07_Async.csproj" />
+  <Project Path="07b_AsyncDisposable/07b_AsyncDisposable.csproj" />
+  <Project Path="08_Null/08_Null.csproj" />
+  <Project Path="09_DependencyInjection/09_DependencyInjection.csproj" />
+  <Project Path="10_Visibility/10_Visibility.csproj" />
+  <Project Path="11_Conventions/11_Conventions.csproj" />
+  <Project Path="12_Enumerable/12_Enumerable.csproj" />
+  <Project Path="13_Delegates/13_Delegates.csproj" />
+  <Project Path="14_Exceptions/14_Exceptions.csproj" />
+  <Project Path="14b_ExceptionsCaveats/14b_ExceptionsCaveats.csproj" />
+  <Project Path="15_Logging/15_Logging.csproj" />
+  <Project Path="16_Reflection/16_Reflection.csproj" />
+  <Project Path="17_Attributes/17_Attributes.csproj" />
+  <Project Path="18_Streams/18_Streams.csproj" />
+  <Project Path="19_Lock/19_Lock.csproj" />
+  <Project Path="20_Json/20_Json.csproj" />
+</Solution>

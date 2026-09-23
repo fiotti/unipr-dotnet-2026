@@ -34,6 +34,14 @@ class MyClass
         set => _field = value;
     }
 
+    // La parola chiave "field" crea automaticamente un campo privato nascosto
+    // specifico per questa property.
+    public int Property3
+    {
+        get => field;
+        set => field = value;
+    }
+
     // Le property possono anche avere solo un getter,
     // oppure volendo solo un setter (raramente).
     public int GetterOnly
